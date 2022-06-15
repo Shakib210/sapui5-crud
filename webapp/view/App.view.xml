@@ -1,0 +1,31 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+>
+	<Input
+		value="{/recipient/name}"
+		description="Hello {/recipient/name}"
+		valueLiveUpdate="true"
+		width="60%"
+	/>
+	<!-- shell dia 2 side e color kore majhe nia ase. -->
+	<Shell>
+		<App class="myAppDemoWT">
+			<pages>
+				<Page title="{i18n>homePageTitle}">
+					<headerContent>
+						<Button
+							icon="sap-icon://hello-world"
+							press=".onOpenDialog"
+						/>
+					</headerContent>
+					<!-- <content>
+						<mvc:XMLView viewName="sap.ui.demo.walkthrough.view.HelloPanel"/>
+						<mvc:XMLView viewName="sap.ui.demo.walkthrough.view.InvoiceList"/>
+					</content> -->
+				</Page>
+			</pages>
+		</App>
+		<!-- <App class="myAppDemoWT" id="app"/> -->
+	</Shell>
+</mvc:View>
