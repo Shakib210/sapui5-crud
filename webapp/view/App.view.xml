@@ -2,30 +2,42 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 >
-	<Input
-		value="{/recipient/name}"
-		description="Hello {/recipient/name}"
-		valueLiveUpdate="true"
-		width="60%"
-	/>
 	<!-- shell dia 2 side e color kore majhe nia ase. -->
 	<Shell>
-		<App class="myAppDemoWT">
+		<App class="crud">
 			<pages>
 				<Page title="{i18n>homePageTitle}">
-					<headerContent>
-						<Button
-							icon="sap-icon://hello-world"
-							press=".onOpenDialog"
+					<FlexBox class="sapUi">
+						<Input
+							id="firstName"
+							placeholder="Enter First Name"
+							class="inputStyle"
 						/>
-					</headerContent>
-					<!-- <content>
-						<mvc:XMLView viewName="sap.ui.demo.walkthrough.view.HelloPanel"/>
-						<mvc:XMLView viewName="sap.ui.demo.walkthrough.view.InvoiceList"/>
-					</content> -->
+						<Input
+							id="lastName"
+							placeholder="Enter Last Name"
+							class="inputStyle"
+						/>
+						<Input
+							id="address"
+							placeholder="Enter Address"
+							class="inputStyle"
+						/>
+						<Input
+							id="age"
+							placeholder="Enter Age"
+							class="inputStyle"
+						/>
+						<Button
+							activeIcon=""
+							icon="sap-icon://add-employee"
+							text="Save"
+							width=""
+							class="buttonStyle"
+						/>
+					</FlexBox>
 				</Page>
 			</pages>
 		</App>
-		<!-- <App class="myAppDemoWT" id="app"/> -->
 	</Shell>
 </mvc:View>
