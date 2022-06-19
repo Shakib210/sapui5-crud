@@ -1,0 +1,35 @@
+/* ============================================== */
+/* CSS for control sap.ui.unified/CalendarLegend  */
+/* Belize High Contrast White theme               */
+/* ============================================== */
+
+.sapUiUnifiedLegend {
+	border: 1px solid @sapUiContentForegroundBorderColor;
+	padding: 11px 16px;
+	max-width: 288px;
+}
+
+.sapUiUnifiedLegend[data-sap-ui-popup] {
+	box-shadow: @sapUiShadowLevel3;
+}
+
+.sapUiUnifiedLegendSquareColor {
+	border-radius: 0;
+}
+
+/*** compact mode (desktop size) ***/
+
+.sapUiSizeCompact .sapUiUnifiedLegend,
+.sapUiSizeCompact.sapUiUnifiedLegend {
+	max-width: 256px;
+}
+
+/*** items and colors ***/
+
+.sapUiUnifiedLegendWorkingDay > .sapUiUnifiedLegendSquare > .sapUiUnifiedLegendSquareColor {
+	background: @sapUiListBackground;
+}
+
+.sapUiUnifiedLegendNonWorkingDay > .sapUiUnifiedLegendSquare > .sapUiUnifiedLegendSquareColor {
+	background: @sapUiHcReducedBackground;
+}
