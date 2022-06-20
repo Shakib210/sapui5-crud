@@ -1,41 +1,92 @@
 <mvc:View
+	controllerName="sap.ui.crud.controller.App"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
 >
 	<!-- shell dia 2 side e color kore majhe nia ase. -->
 	<Shell>
-		<App class="crud">
+		<App class="sapUiSizeCompact">
 			<pages>
-				<Page title="{i18n>homePageTitle}">
-					<FlexBox class="sapUi">
+				<Page title="{i18n>peoplePageTitle}">
+					
 						<Input
-							id="firstName"
-							placeholder="Enter First Name"
-							class="inputStyle"
-						/>
-						<Input
-							id="lastName"
-							placeholder="Enter Last Name"
-							class="inputStyle"
-						/>
-						<Input
-							id="address"
-							placeholder="Enter Address"
-							class="inputStyle"
-						/>
-						<Input
-							id="age"
-							placeholder="Enter Age"
-							class="inputStyle"
-						/>
-						<Button
-							activeIcon=""
-							icon="sap-icon://add-employee"
-							text="Save"
-							width=""
-							class="buttonStyle"
-						/>
-					</FlexBox>
+						id="userName"
+						valueLiveUpdate="true"
+						width="20%"
+						placeholder="{i18n>userNameLabelText}"
+						class="sapUiSmallMarginBeginEnd"
+					/>
+					<Input
+						id="firstName"
+						valueLiveUpdate="true"
+						width="20%"
+						placeholder="{i18n>firstNameLabelText}"
+						class="sapUiSmallMarginBeginEnd"
+					/>
+					<Input
+						id="lastName"
+						valueLiveUpdate="true"
+						width="20%"
+						placeholder="{i18n>lastNameLabelText}"
+						class="sapUiSmallMarginBeginEnd"
+					/>
+					<Input
+						id="age"
+						valueLiveUpdate="true"
+						width="20%"
+						placeholder="{i18n>ageLabelText}"
+						class="sapUiSmallMarginBeginEnd"
+					/>
+					<Button
+						id="testCheck"
+						press=".saveData"
+						text="Submit"
+					>
+						
+					</Button>
+					
+					<content>
+						<Table
+							id="peopleList"
+							growing="true"
+							growingThreshold="10"
+							items="{
+								path: 'peopleList>/Peoples'
+							}"
+						>
+							<columns>
+								<Column id="userNameColumn">
+									<Text text="{i18n>userNameLabelText}"/>
+								</Column>
+								<Column id="firstNameColumn">
+									<Text text="{i18n>firstNameLabelText}"/>
+								</Column>
+								<Column id="lastNameColumn">
+									<Text text="{i18n>lastNameLabelText}"/>
+								</Column>
+								<Column id="ageColumn">
+									<Text text="{i18n>ageLabelText}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{peopleList>UserName}"/>
+									</cells>
+									<cells>
+										<Text text="{peopleList>FirstName}"/>
+									</cells>
+									<cells>
+										<Text text="{peopleList>LastName}"/>
+									</cells>
+									<cells>
+										<Text text="{peopleList>Age}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
 				</Page>
 			</pages>
 		</App>
