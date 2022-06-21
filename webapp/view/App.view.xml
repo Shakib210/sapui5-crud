@@ -9,8 +9,7 @@
 		<App class="sapUiSizeCompact">
 			<pages>
 				<Page title="{i18n>peoplePageTitle}">
-					
-						<Input
+					<Input
 						id="userName"
 						valueLiveUpdate="true"
 						width="20%"
@@ -39,20 +38,26 @@
 						class="sapUiSmallMarginBeginEnd"
 					/>
 					<Button
-						id="testCheck"
+						id="save"
+						visible="{= ${appView>/updateMode} ? false : true}"
 						press=".saveData"
-						text="Submit"
-					>
-						
-					</Button>
-					
+						text="Save"
+					/>
+
+					<Button
+						id="update"
+						visible="{= ${appView>/updateMode} ? true : false}"
+						press=".updateData(${appView>/updateID})"
+						text="Update"
+					/>
 					<content>
 						<Table
 							id="peopleList"
 							growing="true"
 							growingThreshold="10"
+							busy="{appView>/busy}"
 							items="{
-								path: 'peopleList>/Peoples'
+								path: 'appView>/data'
 							}"
 						>
 							<columns>
@@ -68,20 +73,39 @@
 								<Column id="ageColumn">
 									<Text text="{i18n>ageLabelText}"/>
 								</Column>
+								<Column id="actionColumn">
+									<Text text="{i18n>action}"/>
+								</Column>
 							</columns>
 							<items>
 								<ColumnListItem>
 									<cells>
-										<Text text="{peopleList>UserName}"/>
+										<Text text="{appView>UserName}"/>
 									</cells>
 									<cells>
-										<Text text="{peopleList>FirstName}"/>
+										<Text text="{appView>FirstName}"/>
 									</cells>
 									<cells>
-										<Text text="{peopleList>LastName}"/>
+										<Text text="{appView>LastName}"/>
 									</cells>
 									<cells>
-										<Text text="{peopleList>Age}"/>
+										<Text text="{appView>Age}"/>
+									</cells>
+									<cells>
+										<FlexBox>
+											<Button
+												id="editUserButton"
+												icon="sap-icon://edit"
+												press=".onUpdate(${appView>})"
+												class="sapUiSmallMarginBeginEnd"
+												
+											/>
+											<Button
+												id="deleteUserButton"
+												icon="sap-icon://delete"
+												press=".onDelete(${appView>id})"
+											/>
+										</FlexBox>
 									</cells>
 								</ColumnListItem>
 							</items>
